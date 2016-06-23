@@ -17,16 +17,13 @@
     </style>
   </head>
   <body>
-    <div id="map"></div>
+    
     <div id="pano"></div>
     <script>
 
       function initialize() {
         var fenway = {lat: 4.6149759, lng: -74.0890221};
-        var map = new google.maps.Map(document.getElementById('map'), {
-          center: fenway,
-          zoom: 14
-        });
+        
         var panorama = new google.maps.StreetViewPanorama(
             document.getElementById('pano'), {
               position: fenway,
@@ -35,7 +32,7 @@
                 pitch: 10
               }
             });
-        map.setStreetView(panorama);
+        
       }
 
     </script>
