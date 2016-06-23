@@ -2,39 +2,36 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Street View side-by-side</title>
+    <title>UAECD - Google Street View</title>
     <style>
       html, body {
         height: 100%;
         margin: 0;
         padding: 0;
       }
-      #map, #pano {
-        float: left;
+      #pano {
         height: 100%;
         width: 100%;
       }
     </style>
   </head>
   <body>
-    
     <div id="pano"></div>
     <script>
-
       function initialize() {
-        var fenway = {lat: 4.6149759, lng: -74.0890221};
+        var latitud = 4.6149759;
+        var longitud = -74.0890221;
+        var ubicacion = {lat: latitud, lng: longitud};
         
         var panorama = new google.maps.StreetViewPanorama(
             document.getElementById('pano'), {
-              position: fenway,
+              position: ubicacion,
               pov: {
                 heading: 34,
                 pitch: 10
               }
             });
-        
       }
-
     </script>
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8M2PGMpZJNBuH5xa_5tPs-n4RoNDiDH0&signed_in=true&callback=initialize">
