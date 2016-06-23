@@ -9,13 +9,15 @@
         margin: 0;
         padding: 0;
       }
-      #pano {
-        height: 100%;
+      #map, #pano {
+        float: top;
+        height: 50%;
         width: 100%;
       }
     </style>
   </head>
   <body>
+    <div id="map"></div>
     <div id="pano"></div>
     <script>
       function initialize() {
@@ -23,14 +25,19 @@
         var longitud = -74.0890221;
         var ubicacion = {lat: latitud, lng: longitud};
         
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: ubicacion,
+          zoom: 14
+        });
         var panorama = new google.maps.StreetViewPanorama(
-            document.getElementById('pano'), {
-              position: ubicacion,
-              pov: {
-                heading: 34,
-                pitch: 10
-              }
-            });
+          document.getElementById('pano'), {
+            position: ubicacion,
+            pov: {
+              heading: 34,
+              pitch: 10
+            }
+        });
+        map.setStreetView(panorama);
       }
     </script>
     <script async defer
